@@ -29,22 +29,22 @@
 # Testing:
 *** I've read a lot about how clustring is only an explorative approach, and in case I want to classify I should use a classifier, but I choose to go with the following test model, it isn't a great model, accuracy is only 53%, but it's something that I think was worth a try, and I am kinda happy with the approach. 
 So here we go! : 
-1- Build a new Wrod2vec model with tweets from the test set, but in the train part I use "total_examples = old_model.corpus_count" , that will result in building a new vocab from the test set.
-2- Initialize a new dataframe "called words" for words in the vocab, in the following structure:
+- Build a new Wrod2vec model with tweets from the test set, but in the train part I use "total_examples = old_model.corpus_count" , that will result in building a new vocab from the test set.
+- Initialize a new dataframe "called words" for words in the vocab, in the following structure:
     words , vecotors, cluster
-    where words: the vocabulary we built from the new word2vec model.
-          vectors : vector representation for each word.
-          cluster : Uses the k-means model that was trained on the training phase to predict which cluster do each word
+   - words: the vocabulary we built from the new word2vec model.
+   - vectors : vector representation for each word.
+   - cluster : Uses the k-means model that was trained on the training phase to predict which cluster do each word
                     belongs to, and assign the cluster number to that word.
-3- Now the part where it isn't very effiecnt, I loop through the test data again, then:
+- Now the part where it isn't very effiecnt, I loop through the test data again, then:
     For each tweet:
-    - check if it's words is in the words dataframe, if yes!, I lookup it's cluster number and append it to
+   - check if it's words is in the words dataframe, if yes!, I lookup it's cluster number and append it to
       a list.
-    - get the most frequent cluster number in that list.
-    - I then make a prediction based on that number, e.g. if most words in that tweet belong to the negative cluster,
+   - get the most frequent cluster number in that list.
+   - I then make a prediction based on that number, e.g. if most words in that tweet belong to the negative cluster,
       then it most probably a negative tweet.
-    - I compare my prediction to the actual target.
-    - After looping through all the tweets in the test set, I calculate the accuray of the prediction!
+   - I compare my prediction to the actual target.
+   - After looping through all the tweets in the test set, I calculate the accuray of the prediction!
 
 Reference I used to build the model:
 - https://phdstatsphys.wordpress.com/2018/12/27/word2vec-how-to-train-and-update-it/

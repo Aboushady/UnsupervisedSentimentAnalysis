@@ -45,3 +45,11 @@ So here we go! :
       then it most probably a negative tweet.
     - I compare my prediction to the actual target.
     - After looping through all the tweets in the test set, I calculate the accuray of the prediction!
+
+Reference I used to build the model:
+- https://phdstatsphys.wordpress.com/2018/12/27/word2vec-how-to-train-and-update-it/
+- https://jakevdp.github.io/PythonDataScienceHandbook/05.11-k-means.html
+- https://www.analyticsvidhya.com/blog/2019/08/comprehensive-guide-k-means-clustering/
+- https://pythonprogramminglanguage.com/kmeans-text-clustering/
+- https://github.com/rafaljanwojcik/Unsupervised-Sentiment-Analysis
+- https://www.kaggle.com/pierremegret/gensim-word2vec-tutorial
